@@ -1,0 +1,119 @@
+﻿
+@{
+    ViewBag.Title = "Relationships";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container-white container-body">
+    @*link page*@
+    <div class="page-link">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-md-3">
+                    <a href="Relationship">Relationships</a>/<span>List</span>
+                </div>
+                <div class="col-md-6"></div>
+                <div class="col-md-3" style="text-align: center">
+                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalRelationship" id="addRelationship">Add</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @*List project*@
+    <div class="container">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">From</th>
+                    <th scope="col">To</th>
+                    <th scope="col">Memo</th>
+                    <th scope="col" class="center">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{int i = 1;}
+                @foreach (var item in ViewBag.lstRelationship)
+                {
+                    <tr>
+                        <th scope="row">@i</th>
+                        <td>@item.FROM_NAME</td>
+                        <td>@item.TO_NAME</td>
+                        <td>@item.MEMO</td>
+                        <td class="center">
+                            <i class="fa fa-pencil-square edit-realtionship fa-pd" data-toggle="modal" id="@item.ID" data-target="#modalRelationship" aria-hidden="true"></i>
+                            <i class="fa fa-trash fa-pd" aria-hidden="true" onclick="deleteRelationship(@item.ID)"></i>
+                        </td>
+                    </tr>
+
+                    i++;
+                }
+
+            </tbody>
+        </table>
+    </div>
+
+
+    @*Modal Relationship*@
+    <!-- Modal -->
+    <div class="modal fade" id="modalRelationship" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="titleLabelRe">Add Relationship</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="relationshipform">
+                        <input type="hidden" id="idRelation" name="id" />
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <label for="recipient-name" class="col-form-label">From:</label>
+                                </div>
+                                <div class="col-md-9 ml-auto">
+                                    <select id="fromSysId" name="from_sysid" class="form-control" onchange="handleChangeFromSysId()">
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <label for="message-text" class="col-form-label">To:</label>
+                                </div>
+                                <div class="col-md-9 ml-auto">
+                                    <select id="toSysId" name="to_sysid" class="form-control" onchange="handleChangeToSysId()">
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <label for="message-text" class="col-form-label">Memo:</label>
+                                </div>
+                                <div class="col-md-9 ml-auto">
+                                    <textarea class="form-control" name="memo" id="memo"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancle</button>
+                    <button type="button" class="btn btn-primary" id="subRelation">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<script src="Public/vendor/jquery/jquery-3.2.1.min.js"></script>
+<script src="~/Public/js/relationship.js"></script>

@@ -1,0 +1,573 @@
+﻿@{
+    ViewBag.Title = "Projects";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/Public/css/home/home.css" rel="stylesheet" />
+
+
+<div class="container-white container-body">
+
+    <ul class="nav nav-tabs" role="tablist" id="myTab">
+        <li class="nav-item">
+            <a class="nav-link active" href="#project" role="tab" data-toggle="tab">Projects</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link " href="#systems" role="tab" data-toggle="tab">Systems</a>
+        </li>
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+        @*tab project*@
+        <div role="tabpanel" class="tab-pane fade in active" id="project">
+            <div class="container">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">System</th>
+                            <th scope="col">System Name</th>
+                            <th scope="col">Url</th>
+                            @*<th scope="col" class="center">SeqNo</th>*@
+                            <th scope="col" class="center">Document</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{int i = 1;}
+                        @foreach (var item in ViewBag.lstProject)
+                        {
+                            <tr>
+                                <th scope="row">@i</th>
+                                <td>@item.SYSTEM_ID</td>
+                                <td>@item.SYSTEM_DESC</td>
+                                <td>
+                                    @if (item.SYSTEM_ID == "MES")
+                                    {
+                                        if (ViewBag.companycode == "1002")
+                                        {
+                                            <a class="link" href="http://mespk2.pungkookvn.com/" target="_blank">http://mespk2.pungkookvn.com</a>
+                                        }
+                                        else if (ViewBag.companycode == "1006")
+                                        {
+                                            <a class="link" href="http://mespk3.pungkookvn.com/" target="_blank">http://mespk3.pungkookvn.com</a>
+
+                                        }
+                                        else if (ViewBag.companycode == "1008")
+                                        {
+                                            <a class="link" href="http://mespkbt.pungkookvn.com/" target="_blank">http://mespkbt.pungkookvn.com</a>
+
+                                        }
+                                        else if (ViewBag.companycode == "1009")
+                                        {
+                                            <a class="link" href="http://mespkmt.pungkookvn.com/" target="_blank">http://mespkmt.pungkookvn.com</a>
+                                        }
+                                        else
+                                        {
+                                            <a class="link" href="#" target="_blank">null</a>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <a class="link" href="@item.SYS_URL" target="_blank">@item.SYS_URL</a>
+                                    }
+
+                                </td>
+                                @*<td class="right">@item.SEQNO</td>*@
+                                <td class="center">
+                                    @if (@item.SYSTEM_ID == "MRP")
+                                    {
+                                        <a target="_blank" href="~/Public/files/MRPUserManaual.pdf"><img class="export-pdf" src="~/Public/images/export-pdf.png" /></a>
+                                    }
+                                    else if (@item.SYSTEM_ID == "AOM")
+                                    {
+                                        <a target="_blank" href="~/Public/files/AOMTOPS_Manual.pdf"><img class="export-pdf" src="~/Public/images/export-pdf.png" /></a>
+                                    }
+                                    else if (@item.SYSTEM_ID == "WMS")
+                                    {
+                                        <a target="_blank" href="~/Public/files/WMSUSERMANUAL.PDF"><img class="export-pdf" src="~/Public/images/export-pdf.png" /></a>
+                                    }
+                                    else if (@item.SYSTEM_ID == "MTS")
+                                    {
+                                        <a target="_blank" href="~/Public/files/MTS_SOSManual_ENGver.pdf"><img class="export-pdf" src="~/Public/images/export-pdf.png" /></a>
+                                    }
+                                    else if (@item.SYSTEM_ID == "MES")
+                                    {
+                                        <a target="_blank" href="~/Public/files/MESDOCUMENT.pdf"><img class="export-pdf" src="~/Public/images/export-pdf.png" /></a>
+                                    }
+                                    else if (@item.SYSTEM_ID == "PLM")
+                                    {
+                                        <a target="_blank" href="~/Public/files/PDM Manual_v2.pdf"><img class="export-pdf" src="~/Public/images/export-pdf.png" /></a>
+                                    }
+                                    else if (@item.SYSTEM_ID == "OPS")
+                                    {
+                                        <a target="_blank" href="~/Public/files/OPSManual.pdf"><img class="export-pdf" src="~/Public/images/export-pdf.png" /></a>
+                                    }
+                                    else if (@item.SYSTEM_ID == "DGS")
+                                    {
+                                        <a target="_blank" href="~/Public/files/DGS_Manual.pdf"><img class="export-pdf" src="~/Public/images/export-pdf.png" /></a>
+                                    }
+                                    else if (@item.SYSTEM_ID == "TPM")
+                                    {
+                                        <a target="_blank" href="~/Public/files/PKTPM_ERD.pdf"><img class="export-pdf" src="~/Public/images/export-pdf.png" /></a>
+                                    }
+                                    else
+                                    {
+
+                                    }
+
+                                </td>
+                            </tr>
+
+                            i++;
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        @*tab systems data*@
+        <div role="tabpanel" class="tab-pane fade" id="systems">
+
+            <div class="card-systemp">
+                <div class="row">
+                    <div class="col">
+                        <a href="http://was01.pungkookvn.com:8080/AOMTOPS/" target="_blank">
+                            <div class="card" id="AOMTOPSh">
+                                <div class="card-body">
+                                    <h3>AO</h3>
+                                    <p class="card-text">Style Mgmt., Order Mgmt.</p>
+                                </div>
+                                <div id="one" class="point right one"></div>
+                                <div id="from2" class="point bottom"></div>
+                            </div>
+                        </a>
+                    </div>
+                    @*AMOTOPS and PLM*@
+                    <svg class="svg">
+                        <text id="text" style="text-anchor: middle">Product data</text>
+                        <line id="line" class="line" />
+                        <defs>
+                            <marker id="triangle" viewBox="0 0 10 10" refX="8" refY="5" markerUnits="strokeWidth" markerWidth="5" markerHeight="5" orient="auto">
+                                <path d="M 0 0 L 10 5 L 0 10 z" fill="#000"></path>
+                            </marker>
+                            <marker id="dot" viewBox="0 0 10 10" refX="-1" refY="5"
+                                    markerWidth="5" markerHeight="5" orient="auto">
+                                <path d="M10,0 L10,10 L0,5 z" />
+                            </marker>
+                        </defs>
+                    </svg>
+                    @*AMOTOPS to MRP*@
+                    @*<svg class="svg">
+                <text id="text5" style="text-anchor: start">AO details</text>
+                <line id="line5" class="line" />
+                <defs>
+                    <marker id="triangle5" viewBox="0 0 10 10" refX="11" refY="5" markerUnits="strokeWidth" markerWidth="5" markerHeight="5" orient="auto">
+                        <path d="M 0 0 L 10 5 L 0 10 z" fill="#000"></path>
+                    </marker>
+                </defs>
+            </svg>*@
+                <div class="col">
+                    <a href="http://pdm.pungkookvn.com/" target="_blank">
+                        <div class="card card-center" id="PLM">
+                            <div class="card-body">
+                                <h3>PLM</h3>
+                            </div>
+                            <div id="two" class="point left two"></div>
+                            <div id="one1" class="point right one"></div>
+                        </div>
+                    </a>
+                </div>
+                    @*PLM and OPS*@
+                    <svg class="svg">
+                        <text id="text1" style="text-anchor: middle">Style package data</text>
+                        <line id="line1" class="line" />
+                        <defs>
+                            <marker id="triangle1" viewBox="0 0 10 10" refX="8" refY="5" markerUnits="strokeWidth" markerWidth="5" markerHeight="5" orient="auto">
+                                <path d="M 0 0 L 10 5 L 0 10 z" fill="#000"></path>
+                            </marker>
+                            <marker id="dot1" viewBox="0 0 10 10" refX="-1" refY="5"
+                                    markerWidth="5" markerHeight="5" orient="auto">
+                                <path d="M10,0 L10,10 L0,5 z" />
+                            </marker>
+                        </defs>
+                    </svg>
+                    <div class="col">
+                        <a href="http://ops.pungkookvn.com" target="_blank">
+                            <div class="card card-center">
+                                <div class="card-body" id="OPS">
+                                    <h3>OPS</h3>
+                                </div>
+                                <div id="two1" class="point left two"></div>
+                                <div id="one2" class="point right one"></div>
+                                <div id="from" class="point bottom"></div>
+                            </div>
+                        </a>
+                    </div>
+                    @*OPS to TPM*@
+                    <svg class="svg">
+                        <text id="text2" style="text-anchor: middle">Machine master</text>
+                        <line id="line2" class="line" />
+                        <defs>
+                            <marker id="triangle2" viewBox="0 0 10 10" refX="8" refY="5" markerUnits="strokeWidth" markerWidth="5" markerHeight="5" orient="auto">
+                                <path d="M 0 0 L 10 5 L 0 10 z" fill="#000"></path>
+                            </marker>
+                        </defs>
+                    </svg>
+                    @*OPS and MES*@
+                    <svg class="svg">
+                        <text id="text3" style="text-anchor: end">Operation plan</text>
+                        <line id="line3" class="line" />
+                        <defs>
+                            <marker id="triangle3" viewBox="0 0 10 10" refX="10" refY="5" markerUnits="strokeWidth" markerWidth="5" markerHeight="5" orient="auto">
+                                <path d="M 0 0 L 10 5 L 0 10 z" fill="#000"></path>
+                            </marker>
+                            <marker id="dot3" viewBox="0 0 10 10" refX="-1" refY="5"
+                                    markerWidth="5" markerHeight="5" orient="auto">
+                                <path d="M10,0 L10,10 L0,5 z" />
+                            </marker>
+                        </defs>
+                    </svg>
+                    <div class="col">
+                        <a href="http://tpm.pungkookvn.com/" target="_blank">
+                            <div class="card card-center" id="TPM">
+                                <div class="card-body">
+                                    <h3>TPM</h3>
+                                </div>
+                                <div id="two2" class="point left two"></div>
+                                <div id="from1" class="point bottom"></div>
+                                <div id="from6" class="point corner4"></div>
+                            </div>
+                        </a>
+                    </div>
+                    @*TPM and DGS*@
+                    <svg class="svg">
+                        <text id="text4" style="text-anchor: end">Machine master</text>
+                        <text id="text4_1" style="text-anchor: start">IoT-machine mapping</text>
+                        <line id="line4" class="line" />
+                        <defs>
+                            <marker id="triangle4" viewBox="0 0 10 10" refX="10" refY="5" markerUnits="strokeWidth" markerWidth="5" markerHeight="5" orient="auto">
+                                <path d="M 0 0 L 10 5 L 0 10 z" fill="#000"></path>
+                            </marker>
+                            <marker id="dot4" viewBox="0 0 10 10" refX="-1" refY="5"
+                                    markerWidth="5" markerHeight="5" orient="auto">
+                                <path d="M10,0 L10,10 L0,5 z" />
+                            </marker>
+                        </defs>
+                    </svg>
+                    @*TPM to MES*@
+                    <svg class="svg">
+                        <text id="text12" style="text-anchor: start">Machine master</text>
+                        <line id="line12" class="line" />
+                        <defs>
+                            <marker id="triangle12" viewBox="0 0 10 10" refX="11" refY="5" markerUnits="strokeWidth" markerWidth="5" markerHeight="5" orient="auto">
+                                <path d="M 0 0 L 10 5 L 0 10 z" fill="#000"></path>
+                            </marker>
+                        </defs>
+                    </svg>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <a href="http://was01.pungkookvn.com:8080/PKMRP2/" target="_blank">
+                            <div class="card card-center">
+                                <div class="card-body" id="MRP">
+                                    <h3>MRP</h3>
+                                </div>
+                                <div id="to2" class="point top"></div>
+                                <div id="from3" class="point bottom"></div>
+                                <div id="one3" class="point right one"></div>
+                                <div id="from7" class="point bottom"></div>
+                                <div id="one18" class="point right one"></div>
+                            </div>
+                        </a>
+                    </div>
+                    @*MRP to MTS*@
+                    <svg class="svg">
+                        <text id="text6" style="text-anchor: end">PO details</text>
+                        <line id="line6" class="line" />
+                        <defs>
+                            <marker id="triangle6" viewBox="0 0 10 10" refX="10" refY="5" markerUnits="strokeWidth" markerWidth="5" markerHeight="5" orient="auto">
+                                <path d="M 0 0 L 10 5 L 0 10 z" fill="#000"></path>
+                            </marker>
+                        </defs>
+                    </svg>
+                    @*MRP to AOMTOPS Production*@
+                    <svg class="svg">
+                        <text id="text9" style="text-anchor: middle">Product schedule</text>
+                        <line id="line9" class="line" />
+                        <defs>
+                            <marker id="triangle9" viewBox="0 0 10 10" refX="8" refY="5" markerUnits="strokeWidth" markerWidth="5" markerHeight="5" orient="auto">
+                                <path d="M 0 0 L 10 5 L 0 10 z" fill="#000"></path>
+                            </marker>
+                            <marker id="dot9" viewBox="0 0 10 10" refX="-1" refY="5"
+                                    markerWidth="5" markerHeight="5" orient="auto">
+                                <path d="M10,0 L10,10 L0,5 z" />
+                            </marker>
+                        </defs>
+                    </svg>
+                    @*MRP and WMS*@
+                    <svg class="svg">
+                        <text id="text13" style="text-anchor: start">PO-DO</text>
+                        <text id="text13_2" style="text-anchor: start">Stock info</text>
+                        <line id="line13" class="line" />
+                        <defs>
+                            <marker id="triangle13" viewBox="0 0 10 10" refX="11" refY="5" markerUnits="strokeWidth" markerWidth="5" markerHeight="5" orient="auto">
+                                <path d="M 0 0 L 10 5 L 0 10 z" fill="#000"></path>
+                            </marker>
+                            <marker id="dot13" viewBox="0 0 10 10" refX="-1" refY="5"
+                                    markerWidth="5" markerHeight="5" orient="auto">
+                                <path d="M10,0 L10,10 L0,5 z" />
+                            </marker>
+                        </defs>
+                    </svg>
+                    @*MRP to MES*@
+                    <svg class="svg">
+                        <text id="text18" style="text-anchor: middle">Material readiness</text>
+                        <line id="line18" class="line" />
+                        <defs>
+                            <marker id="dot18" viewBox="0 0 10 10" refX="8" refY="5" markerUnits="strokeWidth" markerWidth="5" markerHeight="5" orient="auto">
+                                <path d="M 0 0 L 10 5 L 0 10 z" fill="#000"></path>
+                            </marker>
+                        </defs>
+                    </svg>
+                    <div class="col"></div>
+
+                    <div class="col">
+                        @{var _href = ""; }
+                        @if (ViewBag.companycode == "1002")
+                        {
+                            _href = "http://mespk2.pungkookvn.com/";
+                        }
+                        else if (ViewBag.companycode == "1006")
+                        {
+                            _href = "http://mespk3.pungkookvn.com/";
+
+                        }
+                        else if (ViewBag.companycode == "1008")
+                        {
+                            _href = "http://mespkbt.pungkookvn.com/";
+
+                        }
+                        else if (ViewBag.companycode == "1009")
+                        {
+                            _href = "http://mespkmt.pungkookvn.com/";
+
+                        }
+                        else
+                        {
+                            _href = "#";
+                        }
+                        <a href="@_href" target="_blank">
+                            <div class="card card-center" id="MES">
+                                <div class="card-body">
+                                    <h3>MES</h3>
+                                </div>
+                                <div id="to" class="point top"></div>
+                                <div id="from5" class="point bottom"></div>
+                                <div id="one4" class="point right one"></div>
+                                <div id="to6" class="point corner2"></div>
+                                <div id="from9" class="point corner3"></div>
+                                <div id="to10" class="point corner4"></div>
+                                <div id="two18" class="point left two"></div>
+                                <div id="two19" class="point left two"></div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="http://27.65.197.213:82/" target="_blank">
+                            <div class="card card-center" id="DGS">
+                                <div class="card-body">
+                                    <h3>DGS</h3>
+                                </div>
+                                <div id="to1" class="point top"></div>
+                                <div id="two4" class="point left two"></div>
+                                <div id="two17" class="point bottom"></div>
+                            </div>
+                        </a>
+                    </div>
+                    @*DGS to MES*@
+                    <svg class="svg">
+                        <text id="text10" style="text-anchor: middle">IoT-machine mapping</text>
+                        <line id="line10" class="line" />
+                        <defs>
+                            <marker id="dot10" viewBox="0 0 10 10" refX="-1" refY="5"
+                                    markerWidth="5" markerHeight="5" orient="auto">
+                                <path d="M10,0 L10,10 L0,5 z" />
+                            </marker>
+                        </defs>
+                    </svg>
+                </div>
+
+                <div class="row">
+                    <div class="col"></div>
+
+                    <div class="col">
+                        <a href="http://was01.pungkookvn.com:8080/AOMTOPS/" target="_blank">
+                            <div class="card" id="AOMTOPPr">
+                                <div class="card-body">
+                                    <h3>MTOPS</h3>
+                                    <p class="card-text">Production Scheduling</p>
+                                </div>
+                                <div id="from4" class="point bottom"></div>
+                                <div id="two3" class="point left two"></div>
+                                <div id="from8" class="point corner3"></div>
+                                <div id="one19" class="point right one"></div>
+                            </div>
+                        </a>
+                    </div>
+                    @*AOMTOPS Production and WMS*@
+                    <svg class="svg">
+                        <line id="line7" class="line" />
+                        <defs>
+                            <marker id="triangle7" viewBox="0 0 10 10" refX="10" refY="5" markerUnits="strokeWidth" markerWidth="5" markerHeight="5" orient="auto">
+                                <path d="M 0 0 L 10 5 L 0 10 z" fill="#000"></path>
+                            </marker>
+                            <marker id="dot7" viewBox="0 0 10 10" refX="-1" refY="5"
+                                    markerWidth="5" markerHeight="5" orient="auto">
+                                <path d="M10,0 L10,10 L0,5 z" />
+                            </marker>
+                        </defs>
+                    </svg>
+                    @*AOMTOPS Production to PCM*@
+                    <svg class="svg">
+                        <text id="text14" style="text-anchor: start">Production schedule</text>
+                        <line id="line14" class="line" />
+                        <defs>
+                            <marker id="triangle14" viewBox="0 0 10 10" refX="11" refY="5" markerUnits="strokeWidth" markerWidth="5" markerHeight="5" orient="auto">
+                                <path d="M 0 0 L 10 5 L 0 10 z" fill="#000"></path>
+                            </marker>
+                        </defs>
+                    </svg>
+
+                    @*AOMTOPS Production to PCM*@
+                    <svg class="svg">
+                        <text id="text19" style="text-anchor: middle">Production schedule</text>
+                        <line id="line19" class="line" />
+                        <defs>
+                            <marker id="triangle19" viewBox="0 0 10 10" refX="11" refY="5" markerUnits="strokeWidth" markerWidth="5" markerHeight="5" orient="auto">
+                                <path d="M 0 0 L 10 5 L 0 10 z" fill="#000"></path>
+                            </marker>
+                        </defs>
+                    </svg>
+
+                    <div class="col"></div>
+
+                    <div class="col"></div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <a href="http://mts.pungkookvn.com:8080/PKMTS/" target="_blank">
+                            <div class="card card-center" id="MTS">
+                                <div class="card-body">
+                                    <h3>MTS</h3>
+                                </div>
+                                <div id="to3" class="point top"></div>
+                                <div id="one5" class="point right one"></div>
+                            </div>
+                        </a>
+                    </div>
+                    @*MTS to WMS*@
+                    <svg class="svg">
+                        <text id="text11" style="text-anchor: middle">Material delivery details</text>
+                        <line id="line11" class="line" />
+                        <defs>
+                            <marker id="dot11" viewBox="0 0 10 10" refX="8" refY="5" markerUnits="strokeWidth" markerWidth="5" markerHeight="5" orient="auto">
+                                <path d="M 0 0 L 10 5 L 0 10 z" fill="#000"></path>
+                            </marker>
+                        </defs>
+                    </svg>
+                    <div class="col">
+                        <a href="http://was02.pungkookvn.com:8080/PKWMS/" target="_blank">
+                            <div class="card card-center" id="WMS">
+                                <div class="card-body">
+                                    <h3>WMS</h3>
+                                </div>
+                                <div id="to4" class="point top"></div>
+                                <div id="two5" class="point left two"></div>
+                                <div id="to7" class="point"></div>
+                                <div id="from10" class="point corner2"></div>
+                            </div>
+                        </a>
+                    </div>
+                    @*WMS to MES*@
+                    <svg class="svg">
+                        <text id="text16" style="text-anchor: middle; stroke: #2525e8 ;">Stock info</text>
+                        <line id="line16" class="line" />
+                        <defs>
+                            <marker id="triangle16" viewBox="0 0 10 10" refX="11" refY="5" markerUnits="strokeWidth" markerWidth="5" markerHeight="5" orient="auto">
+                                <path d="M 0 0 L 10 5 L 0 10 z" fill="#2525e8"></path>
+                            </marker>
+                        </defs>
+                    </svg>
+                    <div class="col">
+                        <a href="http://pcm.pungkookvn.com:8081" target="_blank">
+                            <div class="card card-center" id="PCM">
+                                <div class="card-body">
+                                    <h3>PCM</h3>
+                                </div>
+                                <div id="to5" class="point top"></div>
+                                <div id="to8" class="point"></div>
+                            </div>
+                        </a>
+                    </div>
+                    @*PCM and MES*@
+                    <svg class="svg">
+                        <text id="text8" style="text-anchor: start">QCO</text>
+                        <line id="line8" class="line" />
+                        <defs>
+                            <marker id="dot8" viewBox="0 0 10 10" refX="-1" refY="5"
+                                    markerWidth="5" markerHeight="5" orient="auto">
+                                <path d="M10,0 L10,10 L0,5 z" />
+                            </marker>
+                            <marker id="triangle8" viewBox="0 0 10 10" refX="11" refY="5" markerUnits="strokeWidth" markerWidth="5" markerHeight="5" orient="auto">
+                                <path d="M 0 0 L 10 5 L 0 10 z"></path>
+                            </marker>
+                        </defs>
+                    </svg>
+                    <div class="col">
+                        <div class="card card-center" id="HRM">
+                            <div class="card-body">
+                                <h3>HRM</h3>
+                            </div>
+                            <div id="to9" class="point"></div>
+                            <div id="one17" class="point top"></div>
+                            
+                        </div>
+                    </div>
+                    @*HRM to MES*@
+                    <svg class="svg">
+                        <text id="text15" style="text-anchor: middle">Employee information</text>
+                        <text id="text15_2" style="text-anchor: middle">factory working sheet</text>
+                        <line id="line15" class="line" />
+                        <defs>
+                            <marker id="dot15" viewBox="0 0 10 10" refX="-1" refY="5"
+                                    markerWidth="5" markerHeight="5" orient="auto">
+                                <path d="M10,0 L10,10 L0,5 z" />
+                            </marker>
+                        </defs>
+
+                    </svg>
+                    @*HRM to DGS*@
+                    <svg class="svg">
+                        <text id="text17" style="text-anchor: start">NFC-ID</text>
+                        <line id="line17" class="line" />
+                        <defs>
+                            <marker id="triangle17" viewBox="0 0 10 10" refX="11" refY="5" markerUnits="strokeWidth" markerWidth="5" markerHeight="5" orient="auto">
+                                <path d="M 0 0 L 10 5 L 0 10 z"></path>
+                            </marker>
+                        </defs>
+                    </svg>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+
+<script src="~/Public/js/home/home.js"></script>

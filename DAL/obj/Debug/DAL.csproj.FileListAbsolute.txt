@@ -1,0 +1,9 @@
+D:\company\systems-data\DAL\bin\Debug\DAL.dll.config
+D:\company\systems-data\DAL\bin\Debug\DAL.dll
+D:\company\systems-data\DAL\bin\Debug\DAL.pdb
+D:\company\systems-data\DAL\bin\Debug\Oracle.ManagedDataAccess.dll
+D:\company\systems-data\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
+D:\company\systems-data\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+D:\company\systems-data\DAL\obj\Debug\DAL.csproj.CopyComplete
+D:\company\systems-data\DAL\obj\Debug\DAL.dll
+D:\company\systems-data\DAL\obj\Debug\DAL.pdb

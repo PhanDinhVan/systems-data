@@ -1,0 +1,94 @@
+﻿
+@{
+    ViewBag.Title = "Projects";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .export-pdf {
+        width: 32px;
+    }
+</style>
+
+
+<div class="container-white container-body">
+    @*link page*@
+    <div class="page-link">
+        <div class="row">
+            <div class="col-md-12">
+                <a href="Project">Projects</a>/<span>List</span>
+            </div>
+        </div>
+    </div>
+
+    @*List project*@
+    <div class="container">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">System</th>
+                    <th scope="col">System Name</th>
+                    <th scope="col">Url</th>
+                    @*<th scope="col" class="center">SeqNo</th>*@
+                    <th scope="col" class="center">Document</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{int i = 1;}
+                @foreach (var item in ViewBag.lstProject)
+                {
+                    <tr>
+                        <th scope="row">@i</th>
+                        <td>@item.SYSTEM_ID</td>
+                        <td>@item.SYSTEM_DESC</td>
+                        <td><a class="link" href="@item.SYS_URL" target="_blank">@item.SYS_URL</a></td>
+                        @*<td class="right">@item.SEQNO</td>*@
+                    <td class="center">
+                        @if (@item.SYSTEM_ID == "MRP")
+                        {
+                            <a target="_blank" href="~/Public/files/MRPUserManaual.pdf"><img class="export-pdf" src="~/Public/images/export-pdf.png" /></a>
+                        }
+                        else if (@item.SYSTEM_ID == "AOM")
+                        {
+                            <a target="_blank" href="~/Public/files/AOMTOPS_Manual.pdf"><img class="export-pdf" src="~/Public/images/export-pdf.png" /></a>
+                        }
+                        else if (@item.SYSTEM_ID == "WMS")
+                        {
+                            <a target="_blank" href="~/Public/files/WMSUSERMANUAL.PDF"><img class="export-pdf" src="~/Public/images/export-pdf.png" /></a>
+                        }
+                        else if (@item.SYSTEM_ID == "MTS")
+                        {
+                            <a target="_blank" href="~/Public/files/MTS_SOSManual_ENGver.pdf"><img class="export-pdf" src="~/Public/images/export-pdf.png" /></a>
+                        }
+                        else if (@item.SYSTEM_ID == "MES")
+                        {
+                            <a target="_blank" href="~/Public/files/MESDOCUMENT.pdf"><img class="export-pdf" src="~/Public/images/export-pdf.png" /></a>
+                        }
+                        else if (@item.SYSTEM_ID == "PLM")
+                        {
+                            <a target="_blank" href="~/Public/files/PDM Manual_v2.pdf"><img class="export-pdf" src="~/Public/images/export-pdf.png" /></a>
+                        }
+                        else if (@item.SYSTEM_ID == "OPS")
+                        {
+                            <a target="_blank" href="~/Public/files/OPSManual.pdf"><img class="export-pdf" src="~/Public/images/export-pdf.png" /></a>
+                        }
+                        else
+                        {
+
+                        }
+
+                    </td>
+                    </tr>
+
+                    i++;
+                }
+
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+
+<script src="Public/vendor/jquery/jquery-3.2.1.min.js"></script>
+<script src="~/Public/js/project.js"></script>

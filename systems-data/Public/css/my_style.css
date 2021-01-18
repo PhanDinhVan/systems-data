@@ -1,0 +1,72 @@
+﻿body {
+    padding-top: 0px !important;
+    /*background-color: #87AE91 !important;*/
+    font-size: 14px !important;
+    height: auto !important;
+}
+.padding0 {
+    padding: 0px !important
+}
+.container-login100 {
+    position: inherit !important;
+}
+
+.container-body {
+    margin-top: 71px;
+}
+.title-sys {
+    color: #C00000;
+    text-align: center;
+    padding: 20px;
+    font-weight: bold;
+}
+.wrap-login100 {
+    opacity: 0.9;
+}
+.systems-data {
+    background-color: #87AE91 !important;
+    min-height: 82vh;
+}
+.header-area {
+    background: #435748;
+}
+.container-white {
+    background: #fff;
+}
+.page-link {
+    padding: 20px !important;
+}
+.btn {
+    font-size: 1.5rem !important;
+}
+.right {
+    text-align: right;
+}
+.left {
+    text-align: left;
+}
+.center {
+    text-align: center;
+}
+.fa-pd {
+    padding: 5px 10px;
+    cursor: pointer;
+}
+.header-area .main-header-area .Appointment .book_btn a {
+    padding: 10px 20px !important;
+}
+.link {
+    color: #007bff !important;
+}
+.form-control {
+    font-size: 14px !important;
+}
+.notification-project h5 {
+    color: #ff5549 !important;
+}
+.notification-project .confirm-button-ok {
+    background: #ff5549 !important;
+}
+#sample {
+    top: 100px;
+}

@@ -1,0 +1,130 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title - Systems-Data</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Public/css/my_style.css" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="Public/images/icons/favicon.ico" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="Public/vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="Public/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="Public/fonts/iconic/css/material-design-iconic-font.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="Public/vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="Public/vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="Public/vendor/animsition/css/animsition.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="Public/vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="Public/vendor/daterangepicker/daterangepicker.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="Public/css/util.css">
+    <link rel="stylesheet" type="text/css" href="Public/css/main.css">
+    <!--===============================================================================================-->
+    @*header*@
+
+
+    <link href="~/Public/css/header/jquery-ui.css" rel="stylesheet" />
+    <link href="~/Public/css/header/style.css" rel="stylesheet" />
+
+
+
+    <link href="~/Public/css/header/animate.css" rel="stylesheet" />
+    <link href="~/Public/css/header/flaticon.css" rel="stylesheet" />
+    <link href="~/Public/css/header/gijgo.css" rel="stylesheet" />
+    <link href="~/Public/css/header/magnific-popup.css" rel="stylesheet" />
+    <link href="~/Public/css/header/nice-select.css" rel="stylesheet" />
+    <link href="~/Public/css/header/owl.carousel.min.css" rel="stylesheet" />
+    <link href="~/Public/css/header/slick.css" rel="stylesheet" />
+    <link href="~/Public/css/header/slicknav.css" rel="stylesheet" />
+    <link href="~/Public/css/header/themify-icons.css" rel="stylesheet" />
+
+
+
+
+</head>
+<body>
+    @if (Session["UserID"] != null)
+    {
+        <header>
+            <div class="header-area ">
+                <div id="sticky-header" class="main-header-area">
+                    <div class="container-fluid ">
+                        <div class="header_bottom_border">
+                            <div class="row align-items-center">
+                                <div class="col-xl-3 col-lg-2">
+                                    <div class="logo">
+                                        <a href="Home">
+                                            <img src="~/Public/images/logo/logo2.png" alt="Pungkook">
+                                            @*<b style="color: #fff; font-size: 21px; padding: 10px; margin-top: 5px;">Pungkook</b>*@
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-xl-7 col-lg-8">
+                                    <div class="main-menu  d-none d-lg-block">
+                                        <nav>
+                                            @*<ul id="navigation">
+                                                <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                                                <li>@Html.ActionLink("Projects", "Index", "Project")</li>
+                                                <li>@Html.ActionLink("Relationships", "Index", "Relationship")</li>
+                                            </ul>*@
+                                        </nav>
+                                    </div>
+                                </div>
+                                <div class="col-xl-2 col-lg-2 d-none d-lg-block">
+                                    <div class="Appointment">
+                                        <div class="book_btn d-none d-lg-block">
+                                            @Html.ActionLink("Sign Out", "SignOut", "Login")
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="mobile_menu d-block d-lg-none"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </header>
+    }
+    <div class="containers">
+        @RenderBody()
+    </div>
+
+
+
+    @*@Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")*@
+    @RenderSection("scripts", required: false)
+
+    <!--===============================================================================================-->
+    @*<script src="Public/vendor/jquery/jquery-3.2.1.min.js"></script>*@
+    <!--===============================================================================================-->
+    <script src="Public/vendor/animsition/js/animsition.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="Public/vendor/bootstrap/js/popper.js"></script>
+    <script src="Public/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="Public/vendor/select2/select2.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="Public/vendor/daterangepicker/moment.min.js"></script>
+    <script src="Public/vendor/daterangepicker/daterangepicker.js"></script>
+    <!--===============================================================================================-->
+    <script src="Public/vendor/countdowntime/countdowntime.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/Public/js/notiflix-aio-2.6.0.min.js"></script>
+    @*header*@
+    <script src="~/Public/js/header/jquery.slicknav.min.js"></script>
+
+</body>
+</html>
